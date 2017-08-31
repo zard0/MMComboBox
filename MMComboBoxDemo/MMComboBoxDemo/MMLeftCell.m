@@ -8,6 +8,7 @@
 
 #import "MMLeftCell.h"
 #import "MMComboBoxHeader.h"
+#import "UIView+YTEmptyView.h"
 @interface MMLeftCell ()
 @property (nonatomic, strong) UILabel *infoLabel;
 @property (nonatomic, strong) CALayer *bottomLine;

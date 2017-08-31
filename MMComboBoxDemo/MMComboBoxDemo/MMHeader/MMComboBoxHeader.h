@@ -52,6 +52,13 @@ static const CGFloat ArrowSide = 8.0f;
 static const CGFloat ArrowToRight = 5.0f;
 static const CGFloat DropDownBoxTitleHorizontalToArrow = 10.0f;
 static const CGFloat DropDownBoxTitleHorizontalToLeft  = 10.0f;
+//lkz: 通知的名称
+static  NSString *MMPopupViewClearSearchHistoryNotification = @"MMPopupViewClearSearchHistoryNotification";
+static  NSString *MMPopupViewInputCustomPriceNotification = @"MMPopupViewInputCustomPriceNotification";
+//lkz: MMPopupViewInputCustomPriceNotification通知携带字典的keys
+static  NSString *DDFilterMaxHousePriceKey = @"DDFilterMaxHousePriceKey";
+static  NSString *DDFilterMinHousePriceKey = @"DDFilterMinHousePriceKey";
+
 #define kScreenHeigth [UIScreen mainScreen].bounds.size.height
 #define kScreenWidth  [UIScreen mainScreen].bounds.size.width
 #endif /* MMHeader_h */

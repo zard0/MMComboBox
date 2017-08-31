@@ -12,6 +12,8 @@
 #import "MMBasePopupView.h"
 #import "MMSelectedPath.h"
 #import "MMCombinationItem.h"
+#import "UIView+YTEmptyView.h"
+
 @interface MMComBoBoxView () <MMDropDownBoxDelegate,MMPopupViewDelegate>
 @property (nonatomic, strong) NSMutableArray <MMDropDownBox *>*dropDownBoxArray;
 @property (nonatomic, strong) NSMutableArray <MMItem *>*itemArray;
@@ -109,7 +111,10 @@
 - (void)popupView:(MMBasePopupView *)popupView didSelectedItemsPackagingInArray:(NSArray *)array atIndex:(NSUInteger)index {
     MMItem *item = self.itemArray[index];
     //混合类型不做UI赋值操作 直接将item的路径回调回去就好了
-    if (item.displayType == MMPopupViewDisplayTypeMultilayer || item.displayType == MMPopupViewDisplayTypeNormal) {
+    if (item.displayType == MMPopupViewDisplayTypeMultilayer
+        || item.displayType == MMPopupViewDisplayTypeNormal
+        || item.displayType == MMPopupViewDisplayTypeSearchHistory
+        || item.displayType == MMPopupViewDisplayTypeDDPrice) {
         //拼接选择项
         NSMutableString *title = [NSMutableString string];
         for (int i = 0; i <array.count; i++) {

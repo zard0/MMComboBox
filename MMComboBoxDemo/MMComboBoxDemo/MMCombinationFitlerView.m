@@ -12,6 +12,7 @@
 #import "MMHeaderView.h"
 #import "MMSelectedPath.h"
 #import "MMAlternativeItem.h"
+#import "UIView+YTEmptyView.h"
 
 @interface MMCombinationFitlerView () <MMHeaderViewDelegate,MMCombineCellDelegate,UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UIView *bottomView;
@@ -259,7 +260,7 @@
     if (self.headView == nil) {
      self.headView = [[MMHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.width,self.item.combinationLayout.headerViewHeight)];
      self.headView.delegate = self;
-     self.headView.backgroundColor = [UIColor whiteColor];
+     self.headView.backgroundColor = [UIColor grayColor];
     }
     self.headView.item = self.item;
     return self.headView;

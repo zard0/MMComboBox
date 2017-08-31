@@ -7,6 +7,7 @@
 //
 
 #import "MMCombineCell.h"
+#import "UIView+YTEmptyView.h"
 
 @interface MMCombineCell ()
 @property (nonatomic, strong) UILabel *titleLabel;

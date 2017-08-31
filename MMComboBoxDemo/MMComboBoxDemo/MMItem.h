@@ -25,6 +25,8 @@ typedef NS_ENUM(NSUInteger, MMPopupViewDisplayType) {  //分辨弹出来的view�
     MMPopupViewDisplayTypeNormal = 0,                //一层
     MMPopupViewDisplayTypeMultilayer = 1,            //多层
     MMPopupViewDisplayTypeFilters = 2,               //混合
+    MMPopupViewDisplayTypeSearchHistory = 3,         //lkz: 搜索历史单项选择列表
+    MMPopupViewDisplayTypeDDPrice = 4            //lkz: 数字范围单项筛选列表
 };
 
 @interface MMItem : NSObject

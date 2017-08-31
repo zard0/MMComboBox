@@ -8,6 +8,7 @@
 
 #import "MMNormalCell.h"
 #import "MMComboBoxHeader.h"
+#import "UIView+YTEmptyView.h"
 static const CGFloat horizontalMargin = 10.0f;
 @interface MMNormalCell ()
 @property (nonatomic, strong) UILabel *title;

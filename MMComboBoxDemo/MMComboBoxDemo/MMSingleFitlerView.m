@@ -11,7 +11,8 @@
 #import "MMNormalCell.h"
 #import "MMSelectedPath.h"
 #import "MMSingleItem.h"
-@interface MMSingleFitlerView () <UITableViewDelegate, UITableViewDataSource>
+#import "UIView+YTEmptyView.h"
+@interface MMSingleFitlerView () 
 @property (nonatomic, assign) BOOL isSuccessfulToCallBack;
 @property (nonatomic, strong) UIView *bottomView;
 @property (nonatomic, strong) MMSingleItem *item;
@@ -44,7 +45,8 @@
     self.sourceFrame = frame;
     CGFloat top =  CGRectGetMaxY(self.sourceFrame);
     CGFloat maxHeight = kScreenHeigth - DistanceBeteewnPopupViewAndBottom - top - PopupViewTabBarHeight;
-    CGFloat resultHeight = MIN(maxHeight, self.item.childrenNodes.count * PopupViewRowHeight);
+    // lkz:使用公共属性替代原来的局部变量
+    self.popupViewHeight = self.popupViewHeight > 0 ? self.popupViewHeight : MIN(maxHeight, self.item.childrenNodes.count * PopupViewRowHeight);
     self.frame = CGRectMake(0, top, kScreenWidth, 0);
      [rootView addSubview:self];
    
@@ -67,7 +69,7 @@
     
     //出现的动画
     [UIView animateWithDuration:AnimationDuration animations:^{
-        self.frame = CGRectMake(0, top, kScreenWidth, resultHeight);
+        self.frame = CGRectMake(0, top, kScreenWidth, self.popupViewHeight);
         self.mainTableView.frame = self.bounds;
         self.shadowView.alpha = ShadowAlpha;
     } completion:^(BOOL finished) {
@@ -211,4 +213,5 @@
             [self _callBackDelegate];
     }
 }
+
 @end

@@ -12,6 +12,7 @@
 #import "MMNormalCell.h"
 #import "MMSelectedPath.h"
 #import "MMMultiItem.h"
+#import "UIView+YTEmptyView.h"
 
 @interface MMMultiFitlerView () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, assign) NSUInteger minRowNumber;
