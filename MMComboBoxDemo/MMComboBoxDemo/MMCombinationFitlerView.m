@@ -290,8 +290,13 @@
     NSIndexPath *indexPath = [self.mainTableView indexPathForCell:combineCell];
     NSInteger indexOfSelectedArray = [self _indexOfSelectedArrayByPath:[MMSelectedPath pathWithFirstPath:indexPath.row secondPath:index]];
     NSMutableArray *itemArray = self.selectedArray[indexOfSelectedArray];
-   
-    switch (self.item.selectedType) {
+    // 表格只有一个section，一个cell是一行，所以cell的indexPath.row就是选项的section的index
+    bool multiSelection = [self enableMultiSelectionForCellAtSection:indexPath.row];
+    MMPopupViewSelectedType selectionType = MMPopupViewSingleSelection;
+    if (multiSelection) {
+        selectionType = MMPopupViewMultilSeMultiSelection;
+    }
+    switch (selectionType) {
         case MMPopupViewSingleSelection:{ //单选
             if ([self _iscontainsSelectedPath:[MMSelectedPath pathWithFirstPath:indexPath.row secondPath:index] sourceArray:itemArray] && itemArray.count == 1) return; //包含
                 MMSelectedPath *removeIndexPath = [itemArray lastObject];
@@ -317,6 +322,31 @@
             break;
     }
     [self.mainTableView reloadData];
+}
+
+/**
+ lkz: 判断cell所在section是否允许多选
+ 1，当self.item.selectedType为MMPopupViewMultilSeMultiSelection并且self.item.multiSelectionEnableSections没有元素时，返回YES。
+ 2，当self.item.selectedType为MMPopupViewMultilSeMultiSelection并且self.item.multiSelectionEnableSections的元素包含section时，返回YES。
+
+ @param section <#section description#>
+ @return <#return value description#>
+ */
+- (BOOL)enableMultiSelectionForCellAtSection:(NSInteger)section{
+    bool multiSelection = NO;
+    if (self.item.selectedType == MMPopupViewMultilSeMultiSelection) {
+        if (self.item.multiSelectionEnableSections.count == 0) {// 没有指定哪些sections可以多选，则全部可多选
+            multiSelection = YES;
+        }else{// 指定了可以多选的sections并且section也在里面
+            for (NSNumber *num in self.item.multiSelectionEnableSections) {
+                NSInteger section1 = [num integerValue];
+                if (section1 == section) {
+                    multiSelection = YES;
+                }
+            }
+        }
+    }
+    return multiSelection;
 }
 
 @end

@@ -150,6 +150,8 @@
         
         if (self.isMultiSelection)
         rootItem4.selectedType = MMPopupViewMultilSeMultiSelection;
+        // 只让指定的sections可以多选
+        rootItem4.multiSelectionEnableSections = @[@"2",@"1"];
 
         MMAlternativeItem *alternativeItem1 = [MMAlternativeItem itemWithTitle:@"只看免预约" isSelected:NO];
         MMAlternativeItem *alternativeItem2 = [MMAlternativeItem itemWithTitle:@"节假日可用" isSelected:YES];
