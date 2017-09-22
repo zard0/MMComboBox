@@ -10,7 +10,7 @@
 #import "MMComBoBox.h"
 #import "UIView+YTEmptyView.h"
 
-@interface DDConfigViewController ()<MMComBoBoxViewDataSource, MMComBoBoxViewDelegate>
+@interface DDConfigViewController ()<MMComBoBoxViewDataSource, MMComBoBoxViewDelegate,MMPopupViewExtensionDataSource>
 @property (nonatomic, strong) NSArray *mutableArray;
 @property (nonatomic, strong) MMComBoBoxView *comBoBoxView;
 @property (nonatomic, strong) UIButton *nextPageBtn;
@@ -132,7 +132,7 @@
         
         //root 2
         MMSingleItem *rootItem2 = [MMSingleItem itemWithItemType:MMPopupViewDisplayTypeUnselected titleName:@"排序"];
-        rootItem2.displayType = MMPopupViewDisplayTypeSearchHistory;
+        rootItem2.displayType = MMPopupViewDisplayTypeExtensibleSingleLayer;
         
         if (self.isMultiSelection)
             rootItem2.selectedType = MMPopupViewMultilSeMultiSelection;
@@ -246,9 +246,33 @@
 #pragma mark - Action
 - (void)respondsToButtonAction:(UIButton *)sender {
 
+    DDConfigViewController *vc = [[DDConfigViewController alloc] init];
+    vc.isMultiSelection = NO;
+    [self.navigationController pushViewController:vc animated:YES];
+
 }
 
-
+#pragma mark - MMPopupViewExtensionDataSource
 
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

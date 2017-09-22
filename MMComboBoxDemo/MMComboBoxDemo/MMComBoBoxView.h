@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "MMItem.h"
+/// 1, 让调用方知道根据什么协议来定制拓展header、footer;2,定义了MMComBoBoxView用来传递拓展数据的协议。
+#import "MMPopupViewExtensionProtocol.h"
 
 @protocol MMComBoBoxViewDataSource;
 @protocol MMComBoBoxViewDelegate;
 @interface MMComBoBoxView : UIView
 @property (nonatomic, weak) id<MMComBoBoxViewDataSource> dataSource;
 @property (nonatomic, weak) id<MMComBoBoxViewDelegate> delegate;
+@property (nonatomic, weak) id<MMPopupViewExtensionDataSource> popupViewExtensionDataSource;
 - (void)reload;
 - (void)dimissPopView;
 @end

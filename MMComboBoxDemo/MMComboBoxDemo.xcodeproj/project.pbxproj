@@ -15,6 +15,7 @@
 		0A20AF4B1F57E56300E78938 /* UIColor+Fetch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A20AF491F57E56300E78938 /* UIColor+Fetch.m */; };
 		0A20AF4E1F57E5F200E78938 /* YTImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A20AF4D1F57E5F200E78938 /* YTImageUtils.m */; };
 		0A20AF511F57E6A200E78938 /* UIView+YTEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A20AF501F57E6A200E78938 /* UIView+YTEmptyView.m */; };
+		0A477EC81F720BED005EF3EE /* MMExtensibleSingleFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A477EC61F720BED005EF3EE /* MMExtensibleSingleFilterView.m */; };
 		7507081A1DF80A7700D21D49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 750708191DF80A7700D21D49 /* main.m */; };
 		7507081D1DF80A7700D21D49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7507081C1DF80A7700D21D49 /* AppDelegate.m */; };
 		750708201DF80A7700D21D49 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7507081F1DF80A7700D21D49 /* ViewController.m */; };
@@ -81,6 +82,9 @@
 		0A20AF4D1F57E5F200E78938 /* YTImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTImageUtils.m; sourceTree = "<group>"; };
 		0A20AF4F1F57E6A200E78938 /* UIView+YTEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YTEmptyView.h"; sourceTree = "<group>"; };
 		0A20AF501F57E6A200E78938 /* UIView+YTEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YTEmptyView.m"; sourceTree = "<group>"; };
+		0A477EC51F720BED005EF3EE /* MMExtensibleSingleFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMExtensibleSingleFilterView.h; sourceTree = "<group>"; };
+		0A477EC61F720BED005EF3EE /* MMExtensibleSingleFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMExtensibleSingleFilterView.m; sourceTree = "<group>"; };
+		0A477EC71F720BED005EF3EE /* MMPopupViewExtensionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPopupViewExtensionProtocol.h; sourceTree = "<group>"; };
 		750708151DF80A7700D21D49 /* MMComboBoxDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMComboBoxDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		750708191DF80A7700D21D49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7507081B1DF80A7700D21D49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -188,6 +192,16 @@
 				0A20AF3E1F57BA0D00E78938 /* DDConfigViewController.m */,
 			);
 			path = DDComponents;
+			sourceTree = "<group>";
+		};
+		0A477EC41F720BED005EF3EE /* ExtensibleSingleFilterView */ = {
+			isa = PBXGroup;
+			children = (
+				0A477EC51F720BED005EF3EE /* MMExtensibleSingleFilterView.h */,
+				0A477EC61F720BED005EF3EE /* MMExtensibleSingleFilterView.m */,
+				0A477EC71F720BED005EF3EE /* MMPopupViewExtensionProtocol.h */,
+			);
+			path = ExtensibleSingleFilterView;
 			sourceTree = "<group>";
 		};
 		7507080C1DF80A7700D21D49 = {
@@ -299,6 +313,7 @@
 		750708B61DF93B2E00D21D49 /* PopupView */ = {
 			isa = PBXGroup;
 			children = (
+				0A477EC41F720BED005EF3EE /* ExtensibleSingleFilterView */,
 				75F6723F1E9CBB1000DD31B5 /* BasePopupView */,
 				75F672401E9CBB2300DD31B5 /* SingleFitlerView */,
 				75F672421E9CBB8300DD31B5 /* CombinationFitlerView */,
@@ -580,6 +595,7 @@
 				0A20AF421F57C10600E78938 /* MMSingleFilterDDPriceView.m in Sources */,
 				75F9B3441E08C01700E12FF3 /* MMHeaderView.m in Sources */,
 				75317B881E99E13A00B88E6D /* MMCombinationItem.m in Sources */,
+				0A477EC81F720BED005EF3EE /* MMExtensibleSingleFilterView.m in Sources */,
 				750708611DF8EA2600D21D49 /* MMComBoBoxView.m in Sources */,
 				7507084E1DF80B1F00D21D49 /* MMBasePopupView.m in Sources */,
 				7507085E1DF8EA0500D21D49 /* MMDropDownBox.m in Sources */,

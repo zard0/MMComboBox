@@ -26,7 +26,10 @@ typedef NS_ENUM(NSUInteger, MMPopupViewDisplayType) {  //分辨弹出来的view�
     MMPopupViewDisplayTypeMultilayer = 1,            //多层
     MMPopupViewDisplayTypeFilters = 2,               //混合
     MMPopupViewDisplayTypeSearchHistory = 3,         //lkz: 搜索历史单项选择列表
-    MMPopupViewDisplayTypeDDPrice = 4            //lkz: 数字范围单项筛选列表
+    MMPopupViewDisplayTypeDDPrice = 4,          //lkz: 数字范围单项筛选列表
+    // 可拓展header,footer的单层类型
+    // 目前支持的拓展为：自定义多选风格时的确定取消footer；自定义单选风格时可输入值范围的footer；自定义可清除数据的header。
+    MMPopupViewDisplayTypeExtensibleSingleLayer
 };
 
 @interface MMItem : NSObject

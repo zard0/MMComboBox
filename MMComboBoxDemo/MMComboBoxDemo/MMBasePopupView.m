@@ -10,6 +10,7 @@
 #import "MMSingleFitlerView.h"
 #import "MMMultiFitlerView.h"
 #import "MMCombinationFitlerView.h"
+#import "MMExtensibleSingleFilterView.h"
 #import "MMSingleFitlerSearchHistoryView.h"
 #import "MMSingleFilterDDPriceView.h"
 #import "MMComboBoxHeader.h"
@@ -53,6 +54,9 @@
             break;
         case MMPopupViewDisplayTypeDDPrice:
             view =  [[MMSingleFilterDDPriceView alloc] initMMSingleFilterDDPriceViewWithItem:item];
+            break;
+        case MMPopupViewDisplayTypeExtensibleSingleLayer:
+            view =  [[MMExtensibleSingleFilterView alloc] initWithItem:item];
             break;
         default:
             break;

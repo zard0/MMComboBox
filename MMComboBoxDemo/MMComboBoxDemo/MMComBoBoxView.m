@@ -14,7 +14,7 @@
 #import "MMCombinationItem.h"
 #import "UIView+YTEmptyView.h"
 
-@interface MMComBoBoxView () <MMDropDownBoxDelegate,MMPopupViewDelegate>
+@interface MMComBoBoxView () <MMDropDownBoxDelegate,MMPopupViewDelegate,MMPopupViewDataSource>
 @property (nonatomic, strong) NSMutableArray <MMDropDownBox *>*dropDownBoxArray;
 @property (nonatomic, strong) NSMutableArray <MMItem *>*itemArray;
 @property (nonatomic, strong) NSMutableArray <MMBasePopupView *>*symbolArray;  /*当成一个队列来标记那个弹出视图**/
@@ -98,6 +98,7 @@
         MMItem *item = self.itemArray[index];
         MMBasePopupView *popupView = [MMBasePopupView getSubPopupView:item];
         popupView.delegate = self;
+        popupView.dataSource = self;
         popupView.tag = index;
         self.popupView = popupView;
         [popupView popupViewFromSourceFrame:self.frame completion:^{
@@ -137,4 +138,69 @@
         [currentBox updateTitleState:NO];
     }
 }
+
+#pragma mark - MMPopupViewDataSource
+
+- (CGFloat)headerHeightForPopupView:(MMBasePopupView *)view{
+    if ([self.popupViewExtensionDataSource respondsToSelector:@selector(popupViewHeaderHeight)]) {
+        return [self.popupViewExtensionDataSource popupViewHeaderHeight];
+    }
+    return 0;
+}
+
+- (UIView *)headerViewForPopupView:(MMBasePopupView *)view{
+    if ([self.popupViewExtensionDataSource respondsToSelector:@selector(popupViewHeaderView)]) {
+        return [self.popupViewExtensionDataSource popupViewHeaderView];
+    }
+    return nil;
+}
+
+- (CGFloat)footerHeightForPopupView:(MMBasePopupView *)view{
+    if ([self.popupViewExtensionDataSource respondsToSelector:@selector(popupViewFooterHeight)]) {
+        return [self.popupViewExtensionDataSource popupViewFooterHeight];
+    }
+    return 0;
+}
+
+- (UIView *)footerViewForPopupView:(MMBasePopupView *)view{
+    if ([self.popupViewExtensionDataSource respondsToSelector:@selector(popupViewFooterView)]) {
+        return [self.popupViewExtensionDataSource popupViewFooterView];
+    }
+    return nil;
+}
+
+- (CGFloat)bottomDistanceForPopupView:(MMBasePopupView *)view{
+    if ([self.popupViewExtensionDataSource respondsToSelector:@selector(popupViewBottomDistance)]) {
+        return [self.popupViewExtensionDataSource popupViewBottomDistance];
+    }
+    return 0;
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

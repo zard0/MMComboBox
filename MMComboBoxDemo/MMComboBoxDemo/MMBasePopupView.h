@@ -10,6 +10,8 @@
 
 @class MMItem;
 @protocol MMPopupViewDelegate;
+@protocol MMPopupViewDataSource;
+
 @interface MMBasePopupView : UIView 
 //@property (nonatomic, strong) MMItem *item;
 @property (nonatomic, assign) CGRect sourceFrame;                                       /* tapBar的frame**/
@@ -21,6 +23,7 @@
 
 
 @property (nonatomic, weak) id<MMPopupViewDelegate> delegate;
+@property (nonatomic, weak) id<MMPopupViewDataSource> dataSource;
 + (MMBasePopupView *)getSubPopupView:(MMItem *)item;
 - (id)initWithItem:(MMItem *)item;
 
@@ -36,3 +39,65 @@
 @required
 - (void)popupViewWillDismiss:(MMBasePopupView *)popupView;
 @end
+
+
+/**
+ 通过这个数据源协议，让调用方可以对PopupView做一些个性化定制
+ */
+@protocol MMPopupViewDataSource <NSObject>
+
+/**
+ 头部高度
+
+ @param view <#view description#>
+ @return <#return value description#>
+ */
+- (CGFloat)headerHeightForPopupView:(MMBasePopupView *)view;
+
+/**
+ 底部高度
+
+ @param view <#view description#>
+ @return <#return value description#>
+ */
+- (CGFloat)footerHeightForPopupView:(MMBasePopupView *)view;
+
+/**
+ 头部视图
+
+ @param view <#view description#>
+ @return <#return value description#>
+ */
+- (UIView *)headerViewForPopupView:(MMBasePopupView *)view;
+
+/**
+ 底部视图
+
+ @param view <#view description#>
+ @return <#return value description#>
+ */
+- (UIView *)footerViewForPopupView:(MMBasePopupView *)view;
+
+/**
+ PopupView底部距离屏幕底部的高度
+
+ @param view <#view description#>
+ @return <#return value description#>
+ */
+- (CGFloat)bottomDistanceForPopupView:(MMBasePopupView *)view;
+
+@end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
